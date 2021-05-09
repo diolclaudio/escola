@@ -1,0 +1,21 @@
+{% extends 'pays/base.html'%}
+{% load static%}
+
+{% block content%}
+<h1 class="titulo">Escola</h1>
+<h2 class="titulo">Melhores alunos</h2>
+
+<div class="offset-1 col-10">
+    <h3>1 classe</h3>
+    <img src="{% static 'images/6.jpg'%}" class="img-fluid">
+    <br>
+    <h3>2 classe</h3>
+    <img src="{% static 'images/7.jpg'%}" class="img-fluid">
+    <br>
+    <h3>3 classe</h3>
+    <img src="{% static 'images/8.jpg'%}" class="img-fluid">
+    <br>
+    <h3>4 classe</h3>
+    <img src="{% static 'images/5.jpg'%}" class="img-fluid">
+</div>
+{% endblock content%}
