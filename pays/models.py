@@ -14,6 +14,15 @@ class Pagar(models.Model):
     def __str__(self):
         return self.nome
 
+class Inscricoes(models.Model):
+    nome = models.CharField('Nome completo', max_length=20)
+    curso = models.CharField(max_length=23, choices=[('Curso de informática', 'Curso de informática'), ('Curso de medicina geral', 'Curso de medicina geral'), ('Curso de electrónica', 'Curso de electrónica'), ('Curso de artes', 'Curso de artes')])
+    valor = models.DecimalField(max_digits=10, decimal_places=2, default=1000)
+    numero = models.DecimalField('Número de celular', max_digits=9, decimal_places=0)
+    email = models.EmailField(max_length=50)
+    def __str__(self):
+        return self.nome
+
 class Comentario(models.Model):
     opiniao = models.TextField()
     data = models.DateTimeField(auto_now_add=True)

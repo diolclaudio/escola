@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from.models import Pagar, Comentario
-from .forms import PagarForm, ComentarioForm
+from .forms import PagarForm, InscricoesForm, ComentarioForm
 
 def index(request):
     return render(request, 'pays/index.html')
@@ -37,6 +37,22 @@ def confirmar(request, id):
 def info(request):
     comentario = Comentario.objects.all().order_by('-data')
     return render(request, 'pays/info.html', {'comentario': comentario})
+
+def inscricoes(request):
+    if request.method == 'POST':
+
+        form = InscricoesForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+        return redirect('/info/')
+
+    else:
+        form = InscricoesForm()
+        return render(request, 'pays/inscricoes.html', {'form': form})
+
+def biblioteca(request):
+    return render(request, 'pays/biblioteca.html',)
 
 def comentario(request):
     if request.method == 'POST':
